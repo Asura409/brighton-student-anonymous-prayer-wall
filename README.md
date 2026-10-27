@@ -18,3 +18,5 @@ For Supabase-backed storage, copy `.env.example` to `.env`, set `DATABASE_URL`, 
 ## Deploy on Render
 
 The included `render.yaml` creates a Node web service. Connect the repository to Render, create the service from the Blueprint, and enter the `DATABASE_URL` value in the Render dashboard. The database must be a reachable Supabase PostgreSQL database; do not commit `.env` or real credentials.
+
+For an existing service configured in the Render dashboard, set **Build Command** to `npm ci --include=dev && npm run build` and **Start Command** to `NODE_ENV=production npm run server`, then redeploy. Keep `NODE_ENV=production`; the explicit `--include=dev` installs Vite and its React plugin for the build even in production mode. Without it, npm skips these development dependencies and the build fails with `vite: not found`.
