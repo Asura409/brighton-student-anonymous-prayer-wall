@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5efe6" />
+    <title>Anonymous Prayer Wall · Brighton Student Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Brighton Student Society home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span><b>Brighton</b><small>Student Society</small></span>
+        </a>
+        <a class="quiet-link" href="#about">About the wall <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> A quiet corner of campus</p>
+            <h1 id="hero-title">You don't have to carry it <em>alone.</em></h1>
+            <p class="hero-intro">Share what’s on your heart, anonymously. Browse the wall, pause with someone else’s words, and leave a little encouragement behind.</p>
+            <a class="button button-primary" href="#write">Add a prayer <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-art" aria-label="Illustration of a sunrise over the sea">
+            <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+            <div class="sea-line line-one"></div><div class="sea-line line-two"></div><div class="shore"></div>
+            <span class="art-note note-one">breathe</span><span class="art-note note-two">hope</span>
+          </div>
+        </section>
+
+        <section class="wall-section" id="wall" aria-labelledby="wall-title">
+          <div class="section-heading">
+            <div><p class="eyebrow"><span></span> From our community</p><h2 id="wall-title">The prayer wall</h2></div>
+            <p class="wall-count"><strong id="post-count">06</strong> prayers shared</p>
+          </div>
+          <div class="wall-tools">
+            <div class="filters" role="group" aria-label="Filter prayers">
+              <button class="filter is-active" data-filter="all">All prayers</button>
+              <button class="filter" data-filter="campus">Campus life</button>
+              <button class="filter" data-filter="personal">Personal</button>
+              <button class="filter" data-filter="community">Community</button>
+            </div>
+            <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search the wall" aria-label="Search prayers" /></label>
+          </div>
+          <div class="post-grid" id="post-grid" aria-live="polite"></div>
+          <p class="empty-state" id="empty-state" hidden>No prayers match that search yet. Try another word or browse all prayers.</p>
+        </section>
+
+        <section class="write-section" id="write" aria-labelledby="write-title">
+          <div class="write-card">
+            <div class="write-intro"><p class="eyebrow light"><span></span> Your words are welcome</p><h2 id="write-title">What would you like us to hold with you?</h2><p>There’s no need to sign your name. Share as much or as little as feels right.</p></div>
+            <form id="prayer-form">
+              <label for="prayer-text">Your prayer request</label>
+              <textarea id="prayer-text" maxlength="500" required placeholder="Write your prayer here…"></textarea>
+              <div class="form-row"><label for="category">This is about <select id="category"><option value="personal">Personal</option><option value="campus">Campus life</option><option value="community">Community</option></select></label><button class="button button-light" type="submit">Place prayer <span aria-hidden="true">↗</span></button></div>
+              <p class="form-note"><span aria-hidden="true">⌁</span> Anonymous by default · Please keep this a kind, safe space</p>
+            </form>
+          </div>
+        </section>
+
+        <section class="about" id="about"><div class="about-icon" aria-hidden="true">✦</div><div><p class="eyebrow"><span></span> A note from the society</p><h2>Small acts of care make a campus feel like home.</h2></div><p>Whether you pray, reflect, or simply send good thoughts, you’re welcome here. This wall is a shared pause in a busy week — a place to be seen without needing to be known.</p></section>
+      </main>
+      <footer><span>© 2025 Brighton Student Society</span><span>Made with care on campus <i aria-hidden="true">♥</i></span></footer>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
