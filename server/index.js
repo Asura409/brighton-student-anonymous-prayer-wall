@@ -23,7 +23,7 @@ const starter = [
 
 async function getPublishedPrayers() {
   try {
-    const { rows } = await pool.query("SELECT id, category, body AS text, support_count, created_at FROM prayers WHERE status = 'published' ORDER BY created_at DESC");
+    const { rows } = await pool.query("SELECT id, category, body AS text, created_at FROM prayers WHERE status = 'published' ORDER BY created_at DESC");
     return rows.map(row => ({ ...row, time: new Date(row.created_at).toLocaleDateString() }));
   } catch { return starter; }
 }
@@ -35,11 +35,6 @@ app.post('/api/prayers', async (req, res) => {
   try { const { rows } = await pool.query('INSERT INTO prayers (category, body, status) VALUES ($1, $2, $3) RETURNING id', [category, body.trim(), 'pending']); res.status(201).json({ id: rows[0].id, message: 'Prayer submitted for moderation.' }); }
   catch { res.status(500).json({ error: 'Unable to save prayer' }); }
 });
-app.post('/api/prayers/:id/support', async (req, res) => {
-  try { await pool.query("UPDATE prayers SET support_count = support_count + 1 WHERE id = $1 AND status = 'published'", [req.params.id]); res.status(204).end(); }
-  catch { res.status(500).json({ error: 'Unable to support prayer' }); }
-});
-
 async function start() {
   const isProduction = process.env.NODE_ENV === 'production';
   let render;

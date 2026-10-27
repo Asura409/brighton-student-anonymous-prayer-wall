@@ -1,6 +1,6 @@
 # Brighton Student Society — Anonymous Prayer Wall
 
-A calm, anonymous space for Brighton students to share prayer requests and support one another. The frontend is React/Vite and the API is Express with a MySQL storage layer.
+A calm, anonymous space for Brighton students to share prayer requests. The frontend is React/Vite and the API is Express with Supabase PostgreSQL storage.
 
 ## Run locally
 
